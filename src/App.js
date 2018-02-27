@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import ReduceIcon from './icons/reduce.png'
+import IncreaseIcon from './icons/increase.png'
 import Day from './Day'
 
 class App extends Component {
@@ -7,6 +9,48 @@ class App extends Component {
   state = {
     year: 2018,
     month: 4
+  };
+
+  decreaseMonth = () => {
+    let month = this.state.month;
+    if(month === 0){
+      month = 11;
+      this.setState({year: this.state.year - 1})
+    }
+
+    else {
+      month --;
+    }
+
+    this.setState({month})
+
+  }
+
+  increaseMonth = () => {
+    let month = this.state.month;
+    if(month === 11){
+      month = 0;
+      this.setState({year: this.state.year + 1})
+    }
+
+    else {
+      month ++;
+    }
+
+    this.setState({month})
+
+  }
+
+  decreaseYear = () => {
+
+
+    this.setState({year: this.state.year - 1})
+
+  }
+
+  increaseYear = () => {
+    this.setState({year: this.state.year + 1})
+
   }
 
   render() {
@@ -17,7 +61,7 @@ class App extends Component {
     const {year, month} = this.state;
 
     const day = 1;
-    const days = []
+    const days = [];
 
     const today = new Date(year, month, day);
     console.log(today);
@@ -58,11 +102,27 @@ class App extends Component {
     return (
       <div className="App">
       <div>
-        {months[this.state.month]} {this.state.year}
+        <p>
+          <img className='change-time' alt='decrease month' src={ReduceIcon} onClick={this.decreaseMonth}/>
+            {months[this.state.month]}
+          <img className='change-time' alt='increase month' src={IncreaseIcon} onClick={this.increaseMonth}/>
+          <img className='change-time' alt='decrease year' src={ReduceIcon} onClick={this.decreaseYear}/>
+            {this.state.year}
+          <img className='change-time' alt='increase year' src={IncreaseIcon} onClick={this.increaseYear}/>
+        </p>
       </div>
-        <div className="App-Header">
 
-        {
+
+          <div className="week-grid">
+          {  dayNames.map(day => (
+
+              <div key={day}className="week-day">{day}</div>
+            ))
+          }
+            </div>
+
+          <div className="month-grid">
+          {
             days.map(day => (
 
               <Day key={ day.getDate() + "-" + day.getMonth()} month={ months[day.getMonth()] } date={ day.getDate() } day={ dayNames[day.getDay()] }/>

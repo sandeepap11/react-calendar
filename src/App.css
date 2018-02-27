@@ -18,13 +18,29 @@
   font-size: 1.5em;
 }
 
-.App-Header {
+.month-grid {
   font-size: large;
   display: flex;
   flex-wrap: wrap;
   width: 854px;
 }
+.week-grid {
+  font-size: large;
+  display: flex;
+  flex-wrap: wrap;
+  width: 854px;
 
+}
+
+.week-day{
+
+  float: left;
+  text-align: center;
+    height: 30px;
+    width: 120px;
+    border: 1px black solid;
+    background-color: aquamarine;
+}
 .day-box{
 float: left;
 
@@ -35,6 +51,11 @@ text-align: center;
 
 }
 
+.change-time{
+
+  width: 20px;
+  height: 12px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
