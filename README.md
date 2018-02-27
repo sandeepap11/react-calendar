@@ -1,3 +1,13 @@
+
+A basic react project to show monthly calendar.
+
+To get started, enter below two commands post download.
+
+### `npm install`
+### `npm start`
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
