@@ -4,9 +4,14 @@ class Day extends Component {
 
   render(){
 
-    const { month, date, day } = this.props;
+    let { month, date, day } = this.props;
 
+    if(this.props.match !== undefined){
+    date = this.props.match.params.date;
+    month = this.props.match.params.month;
+    day = this.props.match.params.day;
 
+    }
     return(
 
       <div>
